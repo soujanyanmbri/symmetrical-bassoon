@@ -62,7 +62,7 @@ def main():
             count+=1
             if(maximum_indices != k):
                 missed += 1
-            print(data, "\t\tclassified as: \t", maximum_indices )
+            print(data, "  \tclassified as: \t", maximum_indices )
         print("Success: \t", ((count - missed) / count)*100 , "%")
         print("Failure: \t", ((missed) / count)*100 , "%")
 

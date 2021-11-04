@@ -53,19 +53,19 @@ def main():
             g[i] = discriminant(ip[0], means[i][0], covariance[i][0][0], d, probability[i])
         maximum_indices = g.index(max(g)) + 1
         print(ip, "\t classified as: \t", maximum_indices )
-        print("Case 1: Considering 2 features: ") 
+        print("Case 2: Considering 2 features: ") 
         d = 2
         for i in range(n):
             g[i] = discriminant(ip[0:2], means[i][0:2], covariance[i][0:2, 0:2], d, probability[i])
         maximum_indices = g.index(max(g)) + 1
         print(ip, "\t classified as: \t", maximum_indices )
-        print("Case 1: Considering 3 features: ") 
+        print("Case 3: Considering 3 features: ") 
         d = 3
         for i in range(n):
             g[i] = discriminant(ip, means[i], covariance[i], d, probability[i])
         maximum_indices = g.index(max(g)) + 1
         print(ip, "\t classified as: \t", maximum_indices )
-            
+        print("--"*50)    
 
 if __name__ == '__main__':
     main()
