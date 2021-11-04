@@ -7,7 +7,9 @@
 </h4>
 <hr /> 
 
-### Question 1: 
+[Repo Link](https://github.com/soujanyanmbri/symmetrical-bassoon)
+
+## Question 1: 
 
 The below formuala is implemented this way:\
 ![Formula](Q1/images/formula.png) 
