@@ -47,17 +47,24 @@ def main():
         means.append(sing.mean(axis=0))
         covariance.append(np.cov(sing.T))
   #  print(covariance)
-    k = 1
+    k = 0
     for dataclass in dataclasses:
-        print("The following data should be classified as: ", k, ", but are classified as: ")
         k+=1
+        print("The following data should be classified as: ", k)
+        missed = 0
+        count = 0
         for data in dataclass:
             gi = [0] * n           # each gi 
             for i in range(n):
                 gi[i] = discriminant(data[0], means[i], covariance[i], d, probability[i])
             #find maximum g[i]
-            maximum_indices = gi.index(max(gi))
-            print(data, "    classified as: ", maximum_indices + 1)
+            maximum_indices = gi.index(max(gi)) + 1
+            count+=1
+            if(maximum_indices != k):
+                missed += 1
+            print(data, "\t\tclassified as: \t", maximum_indices )
+        print("Success: \t", ((count - missed) / count)*100 , "%")
+        print("Failure: \t", ((missed) / count)*100 , "%")
 
 if __name__ == '__main__':
     main()
