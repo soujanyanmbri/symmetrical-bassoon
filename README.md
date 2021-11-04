@@ -84,8 +84,8 @@ This should be the following output:
 
 <hr /> 
 
-### Question 2: 
-#### Part a and b:
+## Question 2: 
+### Part a and b: 
 
 Change the probabilty from [1/n, 1/n, 1/n] to [0.5, 0.5, 0]
 Change the inputs accordingly. (Remove other features except x1)
@@ -94,28 +94,54 @@ Change the inputs accordingly. (Remove other features except x1)
 This is the expected output: 
 ![sol1](Q2/images/ab.png) 
 
-#### Part C:
+### Part C:
 Change the inputs accordingly. (Remove other features except x1 and x2)
 
 **Failure percentage is the percentage of points misclassified**
 This is the expected output: 
 ![sol2](Q2/images/c.png) 
-#### Part D:
+### Part D:
 
 Change the inputs accordingly. Use all features.
-
-**Failure percentage is the percentage of points misclassified**
 This is the expected output: 
 ![sol3](Q2/images/d.png) 
 
-#### Part E:
+### Part E:
 
 Comparing all the outputs, it is evident that using x1 is better than the other 2 cases. Reason could be higher covariance
 
-#### Part F:
+### Part F:
+Similar to the questions above, we could consider 3 cases: 
+1. Only x1 is considered
+2. Both x1 and x2 are considered
+3. All the features are considered
+
+We use the covariance and mean matrices of the data given above 
+```
+ix = [[1, 2, 1], [5, 3, 2], [0, 0, 0], [1, 0, 0]]
+```
 
 
-
-**Failure percentage is the percentage of points misclassified**
-This is the expected output: 
-![sol3](Q2/images/d.png) 
+```
+for ip in ix:
+    print("Case 1: Considering 1 feature: ") 
+    d = 1
+    for i in range(n):
+        g[i] = discriminant(ip[0], means[i][0], covariance[i][0][0], d, probability[i])
+    maximum_indices = g.index(max(g)) + 1
+    print(ip, "\t classified as: \t", maximum_indices )
+    print("Case 2: Considering 2 features: ") 
+    d = 2
+    for i in range(n):
+        g[i] = discriminant(ip[0:2], means[i][0:2], covariance[i][0:2, 0:2], d, probability[i])
+    maximum_indices = g.index(max(g)) + 1
+    print(ip, "\t classified as: \t", maximum_indices )
+    print("Case 3: Considering 3 features: ") 
+    d = 3
+    for i in range(n):
+        g[i] = discriminant(ip, means[i], covariance[i], d, probability[i])
+    maximum_indices = g.index(max(g)) + 1
+    print(ip, "\t classified as: \t", maximum_indices )
+```
+This is the output: 
+![solf](Q2/images/f.png) 
