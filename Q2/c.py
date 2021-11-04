@@ -34,7 +34,7 @@ def main():
     n = len(dataclasses)-1                                   # number of classes 
     d = len(dataclasses[0][0])                               # number of features
 
-    #Assuming each class is equally probable
+    #Using the probabilities given
     probability = [0.5, 0.5, 0]
 
     #Find mean and covariance    
