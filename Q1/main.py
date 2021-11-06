@@ -6,8 +6,7 @@ def discriminant(x, mean, covariance, dimension, probability):
     if dimension == 1: 
         dis = (-0.5*(x - mean) * (1 / covariance))* (x-mean) - 0.5*log(2*pi) - 0.5*log(covariance) 
     else: 
-        temp =np.matmul(-0.5*(x - mean), np.linalg.inv(covariance))
-        dis = np.matmul(temp, (x-mean).T) -0.5*dimension*log(2*pi) - 0.5*log(np.linalg.det(covariance))
+        dis = np.matmul(np.matmul(-0.5*(x - mean), np.linalg.inv(covariance)), (x-mean).T) -0.5*dimension*log(2*pi) - 0.5*log(np.linalg.det(covariance))
     if(probability == 0):
         return dis
     else: 
@@ -26,8 +25,8 @@ def main():
     n = len(dataclasses)            # number of classes 
     d = len(dataclasses[0][0])      # number of features
 
-    #Assuming each class is equally probable
-    probability = [1/n] * n
+    #Assuming 
+    probability = [0.25, 0.5, 0.25]
 
     #Find mean and covariance    
     means = []                      # d-component mean vector
