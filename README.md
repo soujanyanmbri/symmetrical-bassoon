@@ -27,7 +27,7 @@ def discriminant(x, mean, covariance, dimension, probability):
         dis += log(probability)
     return dis
 ```
-Initial check has been done to get rid of numpy errors (inverse of scalar quantities) when the data is has the dimension 1 (single feature), other errors can also be avoided with above conditions. 
+Initial check has been done to get rid of numpy errors (inverse of scalar quantities) when the data has the dimension 1 (single feature), other errors can also be avoided with above conditions. 
 
 Other variables should also be initialised along with the data
 
@@ -110,7 +110,7 @@ This is the expected output:
 
 ### Part E:
 
-Comparing all the outputs, it is evident that using x1 is better than the other 2 cases. Reason could be higher covariance
+Comparing all the outputs, it is evident that using x1 or using all features is better than the other case. Reason could be higher covariance
 
 ### Part F:
 Similar to the questions above, we could consider 3 cases: 
